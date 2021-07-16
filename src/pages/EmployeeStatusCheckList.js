@@ -45,7 +45,7 @@ export const EmployeeStatusCheckList = () => {
   };
 
   console.log(
-    state.adminTaskTimeExtensionRequest.AdminTaskExtensionRequestList
+    state.employeeRequestStatusCheck.taskListByid
   );
   return (
     <div>
@@ -106,7 +106,7 @@ export const EmployeeStatusCheckList = () => {
                 <td>{item.status}</td>
                 <td>{item.reason}</td>
                 <td>{item.taskExtensionDate}</td>
-                {/* {item!==undefined&&(<td>item.task.taskId</td> )} */}
+                {item!==undefined&&(<td>{item.task.taskId}</td> )}
                 <td>
                   <input
                     type="button"

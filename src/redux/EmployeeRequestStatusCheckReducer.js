@@ -23,10 +23,10 @@ export const getAllEmployeeRequestsCheckAction = (payload) => {
       const url = `http://localhost:8080/api/v1/request/task/${payload}`;
       const response = await axios.get(url,payload);
   
-      // console.log(response);
+      console.log(response.data);
   
       // UI UPDATE
-      dispatch({ type: REQUEST_BY_ID_ACTION_TYPE, payload: response.data });
+      dispatch({ type:REQUEST_BY_ID_ACTION_TYPE , payload: response.data });
     };
   };
   export const deleteRequestAction = (payload) => {

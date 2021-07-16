@@ -43,6 +43,7 @@ export const EmployeeTimeExtensionStatusCheck = () => {
       console.log("hello");
       // dispatch the call to redux ::for API CALL
       dispatch(getAllEmployeeRequestsCheckAction({ taskId }));
+      history.push("/employee-status-checklist");
 
       // clear the form
       setTaskId("");
@@ -51,6 +52,7 @@ export const EmployeeTimeExtensionStatusCheck = () => {
       formEl.current.classList.add("was-validated");
     }
   };
+  
 
   return (
     <div>
@@ -114,11 +116,13 @@ export const EmployeeTimeExtensionStatusCheck = () => {
                   <input
                     type="button"
                     value="check "
-                    onChange={CheckList}
+                    onClick={CheckList}
+                    // onChange={CheckList}
                     className="btn btn-success btn-lg w-50"
                   />
                 </div>
               </Link>
+              
             </div>
           </form>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { updateRenderAction } from "../redux/EmployeeReducer";
 import logo from "../logo15.png";
@@ -18,6 +19,7 @@ function EmployeeHome() {
   };
   const dispatch = useDispatch();
   const history = useHistory();
+  
   const clearEmployeeRequestURef = () => {
     dispatch(updateRenderAction({}));
     history.push("/employee-request-add");
@@ -26,6 +28,9 @@ function EmployeeHome() {
     dispatch(updateRenderAction({}));
     history.push("/employee-leave-request-add");
   };
+  
+ 
+  
   return (
     <div
       style={{
@@ -56,6 +61,7 @@ function EmployeeHome() {
               <Nav.Link onClick={clearEmployeeRequestURef}>
                 Employee Request Add
               </Nav.Link>
+              
               <Nav.Link onClick={clearEmployeeLeaveRequestURef}>
                 Employee Leave Request Add
               </Nav.Link>
