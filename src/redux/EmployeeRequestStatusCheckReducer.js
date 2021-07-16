@@ -17,11 +17,13 @@ const initState = {
 const EMPLOYEE_GET_ALL_REQUESTS_BY_TASK_ID_ACTION_TYPE = "EMPLOYEE_GET_ALL_REQUESTS_BY_TASK_ID_ACTION_TYP";
 const REQUEST_BY_ID_ACTION_TYPE = "REQUEST_BY_ID_ACTION_TYPE";
 
-export const getAllEmployeeRequestsCheckAction = (payload) => {
+export const getAllEmployeeRequestsCheckAction = () => {
     return async (dispatch) => {
       // API CALL :: FETCH RECORDS
-      const url = `http://localhost:8080/api/v1/request/task/${payload}`;
-      const response = await axios.get(url,payload);
+      const taskId=localStorage.getItem("taskId")
+      console.log(taskId);
+      const url = `http://localhost:8080/api/v1/request/task/${taskId}`;
+      const response = await axios.get(url);
   
       console.log(response.data);
   
