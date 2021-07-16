@@ -20,7 +20,7 @@ export const EmployeeTimeExtensionRequestAdd = () => {
     dispatch(signOutAction());
 
     // redirect the user to login page.
-    history.push("/");
+    history.push("/employee-signin");
   };
   const clearEmployeeRequestURef = () => {
     dispatch(updateRenderAction({}));
@@ -153,8 +153,9 @@ export const EmployeeTimeExtensionRequestAdd = () => {
             required
           />
         </div>
+        <h5 className="text-light text-center col-7"> Status </h5>
         <div className="row mb-1 justify-content-center">
-        
+    
             <input
               type="text"
               value="Pending"

@@ -45,6 +45,7 @@ const signOut = () => {
   const [status, setStatus] = useState(state.employeeRequest.uref.status);
 
   const [task, setTask] = useState(state.employeeRequest.uref.task);
+  
 
   const updateTaskExtensionDate = (e) => setTaskExtensionDate(e.target.value);
   const updateReason = (e) => setReason(e.target.value);
@@ -67,7 +68,7 @@ const signOut = () => {
           reason: reason,
           status: status,
 
-          task: { taskId: task },
+          task,
         })
       );
 
@@ -76,7 +77,7 @@ const signOut = () => {
       setTaskExtensionDate("");
       setReason("");
       setStatus("");
-      setTask("");
+       setTask("");
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
@@ -174,6 +175,7 @@ const signOut = () => {
             required
           />
         </div>
+        <h5 className="text-light text-center col-7">update Status </h5>
         <div className="row mb-1 justify-content-center">
          
             <select
@@ -195,7 +197,7 @@ const signOut = () => {
        
            <input
            type="text"
-           value={task}
+           value={task.taskId}
            onChange={updateTask}
            className="form-control form-control-lg mb-1 w-50"
            placeholder="Enter Task Id"

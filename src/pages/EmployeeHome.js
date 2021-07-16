@@ -14,7 +14,7 @@ function EmployeeHome() {
     dispatch(signOutAction());
 
     // redirect the user to login page.
-    history.push("/");
+    history.push("/employee-signin");
   };
   const dispatch = useDispatch();
   const history = useHistory();

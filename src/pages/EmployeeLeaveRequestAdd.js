@@ -18,7 +18,7 @@ export const EmployeeLeaveRequestAdd = () => {
     dispatch(signOutAction());
 
     // redirect the user to login page.
-    history.push("/");
+    history.push("/employee-signin");
   };
   const clearEmployeeRequestURef = () => {
     dispatch(updateRenderAction({}));
