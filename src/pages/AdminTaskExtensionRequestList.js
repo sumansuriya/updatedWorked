@@ -6,6 +6,10 @@ import { updateRenderAction } from "../redux/EmployeeRequestReducer";
 import { AppNav } from "./AppNav";
 import { Nav, Navbar } from "react-bootstrap";
 import logo from "../logo15.png";
+import {
+  getAllEmployeeRequestsCheckAction,
+  deleteRequestAction,
+} from "../redux/EmployeeRequestStatusCheckReducer";
 import { signOutAction } from "../redux/UserReducer";
 
 export const AdminTaskExtensionRequestList = () => {
@@ -43,6 +47,11 @@ export const AdminTaskExtensionRequestList = () => {
 
     // navigateing to the page
     history.push("/employee-request-update");
+  };
+  const deleteRecord = (item) => {
+    console.log("DELETE RECORD", item.requestid);
+    // dispatch the call.
+    dispatch(deleteRequestAction(item));
   };
 
   console.log(
@@ -106,10 +115,16 @@ export const AdminTaskExtensionRequestList = () => {
         <thead className="thead-dark">
           <tr>
             <th scope="col">requestid</th>
+            <th scope="col">empid</th>
             <th scope="col">status</th>
             <th scope="col">reason</th>
             <th scope="col">taskExtensionDate</th>
             <th scope="col">taskid</th>
+            <th scope="col">taskName</th>
+            <th scope="col">taskStatus</th>
+            <th scope="col">projectid</th>
+            <th scope="col">deadLine</th>
+
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -118,12 +133,18 @@ export const AdminTaskExtensionRequestList = () => {
             (item, index) => (
               <tr key={index}>
                 <th scope="row">{item.requestid}</th>
+                <td>{item.task.emp.empid}</td>
                 <td>{item.status}</td>
                 <td>{item.reason}</td>
                 <td>{item.taskExtensionDate}</td>
                 <td>{item.task.taskId}</td>
+              <td>{item.task.taskName}</td>
+              <td>{item.task.taskStatus}</td>
+               <td>{item.task.projectid}</td>
+               <td>{item.task.deadLine}</td>
 
                 <td>
+                <div className="row mb-2  justify-content-center">
                   <input
                     type="button"
                     value="Update"
@@ -131,6 +152,15 @@ export const AdminTaskExtensionRequestList = () => {
                     // onClick={updateRecord} :1
                     onClick={() => updateRequest(item)}
                   />
+                </div>
+                   <input
+                    type="button"
+                    value="Delete"
+                    // onClick={deleteRecord}
+                    onClick={() => deleteRecord(item)}
+                    className="btn btn-outline-danger btn-sm"
+                  />
+                  
                 </td>
               </tr>
             )

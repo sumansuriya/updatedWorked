@@ -38,11 +38,6 @@ export const EmployeeStatusCheckList = () => {
     dispatch(getAllEmployeeRequestsCheckAction());
   }, []);
 
-  const deleteRecord = (item) => {
-    console.log("DELETE RECORD", item.requestid);
-    // dispatch the call.
-    dispatch(deleteRequestAction(item));
-  };
 
   console.log(
     state.employeeRequestStatusCheck.taskListByid
@@ -94,7 +89,11 @@ export const EmployeeStatusCheckList = () => {
             <th scope="col">reason</th>
             <th scope="col">taskExtensionDate</th>
             <th scope="col">taskid</th>
-            <th scope="col">Actions</th>
+            <th scope="col">taskName</th>
+            <th scope="col">taskStatus</th>
+            <th scope="col">projectid</th>
+            <th scope="col">startDate</th>
+            <th scope="col">deadLine</th>
           </tr>
         </thead>
         <tbody className="text-light">
@@ -107,15 +106,15 @@ export const EmployeeStatusCheckList = () => {
                 <td>{item.reason}</td>
                 <td>{item.taskExtensionDate}</td>
                 {item!==undefined&&(<td>{item.task.taskId}</td> )}
-                <td>
-                  <input
-                    type="button"
-                    value="Delete"
-                    // onClick={deleteRecord}
-                    onClick={() => deleteRecord(item)}
-                    className="btn btn-outline-danger btn-sm"
-                  />
-                </td>
+                
+                <td>{item.task.taskName}</td>
+              <td>{item.task.taskStatus}</td>
+               <td>{item.task.projectid}</td>
+              <td>{item.task.startDate}</td>
+               <td>{item.task.deadLine}</td>
+
+                 
+               
               </tr>
             )
           )}

@@ -29,7 +29,7 @@ export const EmployeeTimeExtensionStatusCheck = () => {
   };
   const state = useSelector((state) => state);
 
-  const [taskId, setTaskId] = useState(0);
+  const [taskId, setTaskId] = useState();
 
   const updateTaskId = (e) => setTaskId(e.target.value);
 
