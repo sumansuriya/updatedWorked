@@ -29,7 +29,7 @@ export const EmployeeTimeExtensionStatusCheck = () => {
   };
   const state = useSelector((state) => state);
 
-  const [taskId, setTaskId] = useState("");
+  const [taskId, setTaskId] = useState(0);
 
   const updateTaskId = (e) => setTaskId(e.target.value);
 
@@ -42,17 +42,18 @@ export const EmployeeTimeExtensionStatusCheck = () => {
     if (isFormValid) {
       console.log("hello");
       // dispatch the call to redux ::for API CALL
-      dispatch(getAllEmployeeRequestsCheckAction({ taskId }));
+      console.log(taskId);
+      dispatch(getAllEmployeeRequestsCheckAction( taskId ));
       history.push("/employee-status-checklist");
 
       // clear the form
-      setTaskId("");
+     // setTaskId("");
     } else {
       e.stopPropagation();
       formEl.current.classList.add("was-validated");
     }
   };
-  
+ 
 
   return (
     <div>
@@ -101,7 +102,7 @@ export const EmployeeTimeExtensionStatusCheck = () => {
           <form ref={formEl} className="needs-validation" noValidate>
             <div className="row mb-1 justify-content-center">
               <input
-                type="text"
+                type="number"
                 value={taskId}
                 onChange={updateTaskId}
                 placeholder="Enter TaskId"
@@ -116,8 +117,10 @@ export const EmployeeTimeExtensionStatusCheck = () => {
                   <input
                     type="button"
                     value="check "
-                    onClick={CheckList}
-                    // onChange={CheckList}
+                  // onChange={CheckList}
+                   onClick={CheckList}
+                    
+                    
                     className="btn btn-success btn-lg w-50"
                   />
                 </div>
