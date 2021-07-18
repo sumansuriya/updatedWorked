@@ -31,7 +31,7 @@ export const createEmployeeRequestAction = (payload) => {
 export const updateEmployeeTaskExtensionRequestAction = (payload) => {
   return async (dispatch) => {
     // making the server call.
-    const url = `http://localhost:8080/api/v1//request/update`;
+    const url = `http://localhost:8080/api/v1/request/update`;
     await axios.put(url, payload);
 
     // making the uref empty again.

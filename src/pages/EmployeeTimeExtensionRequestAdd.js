@@ -162,6 +162,7 @@ export const EmployeeTimeExtensionRequestAdd = () => {
               className="form-control form-control-lg w-50"
               placeholder="Enter status"
               required
+              readOnly
             />
          
         </div>
